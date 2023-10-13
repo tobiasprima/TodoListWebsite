@@ -15,7 +15,8 @@ app.get("/", function(req,res){
 
 app.post("/", function(req,res){
     let item = req.body.newItem
-    console.log(item);
+    items.push(item);
+    res.redirect("/");
 })
 app.listen(port, function(){
     console.log("Server is listening on port " + port)
