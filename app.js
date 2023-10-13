@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-const items = [test];
+const items = ["test"];
 
 app.use(express.static("public"))
 app.use(bodyParser.urlencoded({extended: true}));
@@ -13,6 +13,10 @@ app.get("/", function(req,res){
     res.render("app", {newListItems : items});
 })
 
+app.post("/", function(req,res){
+    let item = req.body.newItem
+    console.log(item);
+})
 app.listen(port, function(){
     console.log("Server is listening on port " + port)
 })
