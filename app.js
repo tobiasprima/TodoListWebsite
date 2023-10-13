@@ -3,11 +3,14 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+const items = [test];
+
 app.use(express.static("public"))
 app.use(bodyParser.urlencoded({extended: true}));
+app.set('view engine', 'ejs')
 
 app.get("/", function(req,res){
-    res.render("app.ejs")
+    res.render("app", {newListItems : items});
 })
 
 app.listen(port, function(){
